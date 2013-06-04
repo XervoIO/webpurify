@@ -20,11 +20,16 @@ WebPurify.prototype.liveCheck = function(text, callback) {
 };
 
 WebPurify.prototype._buildRequestUrl = function(method, params) {
-  var url = WEBPURIFY_BASE + '?api_key=' + this.apiKey + '&format=json';
+  var url = WEBPURIFY_BASE + '?method=' + method +
+                             '&api_key=' + this.apiKey + '&format=json';
   for(var k in params) {
     url += '&' + k + '=' + params[k];
   }
   return url;
+};
+
+WebPurify.prototype._checkResponseError = function(res) {
+
 };
 
 WebPurify.prototype._checkResponseFormat = function(res) {
@@ -35,7 +40,7 @@ WebPurify.prototype._checkResponseFormat = function(res) {
       return true;
     }
   }
-  console.log(res);
+
   return false;
 };
 
