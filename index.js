@@ -35,6 +35,7 @@ WebPurify.prototype._checkResponseFormat = function(res) {
       return true;
     }
   }
+  console.log(res);
   return false;
 };
 
